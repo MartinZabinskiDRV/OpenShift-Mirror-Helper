@@ -1,0 +1,6 @@
+env.sh
+pull-secret.json
+pull-secret-copy.json
+bin/
+mirror/
+*.log
