@@ -11,17 +11,19 @@ if [[ ! -e bin/oc ]]; then
   exit 1
 fi
 
-chmod +x prepare.sh 01_run.sh 02_run.sh
+chmod +x prepare.sh mod_pull_secret.sh dry_run.sh mirror.sh upload_mirror.sh
 
 echo "Installiere Abhängigkeiten"
 ./prepare.sh
 
 echo "Bereite Pull Secret vor"
-./01_run.sh
+mod_pull_secret.sh
+echo "Dry run für Metadaten"
+dry_run.sh | tee metadata.log
 echo "Starte Mirror Process"
-./02_run.sh
+mirror.sh
 
 exit 0
 echo "Upload Images in Mirror"
-./03_run.sh
+upload_mirror.sh
 
