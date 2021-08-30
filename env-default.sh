@@ -30,6 +30,6 @@ RELEASE_NAME='ocp-release'
 # Export the type of architecture for your server, such as x86_64
 ARCHITECTURE=x86_64
 # Export the path to the directory to host the mirrored images
-REMOVABLE_MEDIA_PATH=$PWD/
+REMOVABLE_MEDIA_PATH=$PWD/mymirror
 
 

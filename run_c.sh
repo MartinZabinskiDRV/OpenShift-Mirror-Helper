@@ -14,16 +14,16 @@ fi
 chmod +x prepare.sh mod_pull_secret.sh dry_run.sh mirror.sh upload_mirror.sh
 
 echo "Installiere Abhängigkeiten"
-./prepare.sh
+./prepare.sh | tee prepare.log
 
 echo "Bereite Pull Secret vor"
-mod_pull_secret.sh
+./mod_pull_secret.sh | tee mod_pull_secret.log
 echo "Dry run für Metadaten"
-dry_run.sh | tee metadata.log
+./dry_run.sh | tee dry_run.log
 echo "Starte Mirror Process"
-mirror.sh
+./mirror.sh | tee mirror.log
 
 exit 0
 echo "Upload Images in Mirror"
-upload_mirror.sh
+./upload_mirror.sh | tee upload_mirror.log
 
